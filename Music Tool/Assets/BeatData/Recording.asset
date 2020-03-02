@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba8e45c5837cdc4e81602670a35c1a1, type: 3}
+  m_Name: Recording
+  m_EditorClassIdentifier: 
+  time:
+  - 0.8591383
+  - 1.555737
+  - 2.2987754
+  - 3.065034
+  - 3.8777325
+  - 4.667211
+  - 5.4334693
+  - 6.222948
+  - 7.0124264
+  - 7.755465
+  - 8.521724
+  - 9.334422
+  - 10.1239
+  - 10.913379
+  - 11.702857
+  - 12.492335
+  - 13.305034
+  - 14.117732
+  - 14.907211
+  - 15.53415
+  - 15.766349
+  song: {fileID: 8300000, guid: b79205996f16a2e4fa1a4ffa9bd3868e, type: 3}
