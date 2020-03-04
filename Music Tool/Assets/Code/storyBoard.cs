@@ -154,9 +154,12 @@ public class storyBoard : EditorWindow
 		//AnimationCurve freqCurve;
 		//int amplitude = 0;
 		//AnimationCurve ampCurve;
-		frequency = EditorGUILayout.IntField(new GUIContent("Frequency", "Frequency of some point??"), frequency);
+		frequency = soundFile.frequency;
+		EditorGUILayout.IntField(new GUIContent("Frequency", "Frequency of some point??"), frequency);
 		if (showCurves)
-			freqCurve = EditorGUILayout.CurveField(new GUIContent("Freq Curve", "The frequency visualization."), freqCurve, Color.blue, rectSize);
+		{
+			freqCurve = EditorGUILayout.CurveField(new GUIContent("Freq Curve", "The frequency visualization."), freqCurve); //, Color.blue, rectSize
+		}
 		amplitude = EditorGUILayout.IntField(new GUIContent("Amplitude", "Amplitude? I guess?"), amplitude);
 		if (showCurves)
 			ampCurve = EditorGUILayout.CurveField(new GUIContent("Amp Curve", "The amplitude visualization."), ampCurve, Color.red, rectSize);
@@ -247,7 +250,8 @@ public class storyBoard : EditorWindow
 
 			importantMoments = null;
 			importantMoments = new AnimationCurve();
-			combinedChannelAverage = 0;
+			freqCurve = null;
+			freqCurve = new AnimationCurve();
 
 			Debug.Log("Starting graph processing...");
 			for (int i = 0; i < preproAnalyzer.spectralFluxSamples.Count; i++)
@@ -255,6 +259,7 @@ public class storyBoard : EditorWindow
 				if (preproAnalyzer.spectralFluxSamples[i].isPeak)
 				{
 					importantMoments.AddKey(preproAnalyzer.spectralFluxSamples[i].time, 1);
+					freqCurve.AddKey(preproAnalyzer.spectralFluxSamples[i].time, preproAnalyzer.spectralFluxSamples[i].spectralFlux);
 				}
 			}
 
@@ -297,7 +302,7 @@ public class SpectralFluxAnalyzer
 	float[] curSpectrum;
 	float[] prevSpectrum;
 
-	float thresholdMult = 1.5f;
+	float thresholdMult = 2.0f;
 	int thresholdSize = 50;
 	int indexToProcess;
 
